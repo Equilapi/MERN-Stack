@@ -31,7 +31,6 @@ class App extends Component {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 this.fetchTasks()
                 this.setState({ title: '', description: '', _id: ''})
             })
@@ -48,7 +47,6 @@ class App extends Component {
             })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 this.fetchTasks()
                 this.setState({ title: '', description: ''})
             })
@@ -74,7 +72,7 @@ class App extends Component {
     }
 
     deletedTask(id) {
-        if(confirm('¿Estás seguro de eliminar la tarea?')) {
+        if(confirm('Are you sure you want to delete the task?')) {
             fetch(`/api/tasks/${id}`, {
                 method: 'DELETE',
                 headers: {
@@ -85,7 +83,6 @@ class App extends Component {
             .then(res => res.json())
             .then(data => {
                 this.fetchTasks()
-                console.log(data)
             })
         }
     }
@@ -94,7 +91,6 @@ class App extends Component {
         fetch(`/api/tasks/${id}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 this.setState({
                     title: data.title,
                     description: data.description,
@@ -109,7 +105,7 @@ class App extends Component {
                 {/* { NAVIGATION } */}
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <div className="container">
-                        <a className="navbar-brand" href="/">Tasks</a>
+                        <a className="navbar-brand" href="/">Tasks Admin</a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -146,11 +142,12 @@ class App extends Component {
                                     <form onSubmit={this.addTask}>
                                         <div className="form-group">
                                             <input
+                                                autoComplete="off"
                                                 className="form-control"
                                                 name="title"
                                                 value={this.state.title}
                                                 onChange={this.handleChange}
-                                                placeholder="Nombre tarea"/>
+                                                placeholder="Task"/>
                                         </div>
                                         <div className="form-group">
                                             <textarea
@@ -158,10 +155,10 @@ class App extends Component {
                                                 name="description"
                                                 value={this.state.description}
                                                 onChange={this.handleChange}
-                                                placeholder="Descripcion">
+                                                placeholder="Description">
                                             </textarea>
                                         </div>
-                                        <button className="btn btn-primary">Publicar <ArrowRightIcon /></button>
+                                        <button className="btn btn-primary">Send <ArrowRightIcon /></button>
                                     </form>
                                 </div>
                             </div>

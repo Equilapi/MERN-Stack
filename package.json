@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "webpack": "webpack --mode development --watch"
   },
   "author": "",
@@ -22,6 +22,7 @@
     "@babel/preset-react": "7.10.4",
     "@primer/octicons-react": "10.0.0",
     "babel-loader": "8.1.0",
+    "dotenv": "8.2.0",
     "nodemon": "2.0.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
